@@ -1,3 +1,5 @@
+mod cli;
+
 fn main() {
-    println!("Hello, world!");
+    cli::init(); // you shouldn't need to repeat cli twice
 }
