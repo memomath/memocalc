@@ -3,21 +3,22 @@ use colored::Colorize;
 mod addition;
 mod subtraction;
 
-fn start_mode(mode: &str){
+fn start_mode(mode: &str) -> bool {
     match mode {
         "addition" => {
-            addition::start_addition()
+            addition::start();
+            return true;
         }
 
         "subtraction" => {
-            subtraction::start_subtraction()
+            subtraction::start();
+            return true;
         }
         _ => {
-            error("Mode not found","mentical <mode types>")
+            return false;
         }
     }
 }
-
 
 pub fn init() {
     let mut args: Vec<String> = std::env::args().collect();
@@ -30,7 +31,7 @@ pub fn init() {
             "--version" | "-v" => {
                 println!("{}", "1.0.0");
             }
-            _ => { 
+            _ => {
                 start_mode(&*x.to_lowercase());
             }
         },
@@ -39,9 +40,19 @@ pub fn init() {
             println!("{}", "Select Mode: ".green());
             println!("addition {}", "+".green());
             println!("subtraction {}", "-".green());
-            println!("\n")
+            println!("\n");
 
-            
+            loop {
+                let mut line = String::new();
+                std::io::stdin().read_line(&mut line).unwrap();
+                let mut line = &*line;
+
+                line = line.trim();
+
+                if start_mode(line) {
+                    break;
+                }
+            }
         }
     }
 }
