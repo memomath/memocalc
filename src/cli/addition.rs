@@ -50,7 +50,7 @@ pub fn start() {
 
         let sum: i32 = numbers.iter().sum(); //adds every element in the vector
 
-        let mut answer_buffer = String::new(); //raw input for answer ?? sure idc
+        let mut answer_buffer = String::new(); //raw input for answer
         std::io::stdin().read_line(&mut answer_buffer).unwrap(); //store in answer_buffer var
 
         let answer_string: &str = (&*answer_buffer).trim(); //answer input as a string to check for string commands
