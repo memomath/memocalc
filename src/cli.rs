@@ -5,14 +5,26 @@ mod subtraction;
 
 //start, with the selected mode
 fn start_mode(mode: &str) -> bool {
+
+    //modes possible
     match mode {
-        "addition" => {
-            addition::start();
+        "addition" | "+" | "add" => {
+            addition::start(); //start addition prompt
             return true;
         }
 
-        "subtraction" => {
-            subtraction::start();
+        "subtraction" | "-" | "subtract" => {
+            subtraction::start(); //start subtraction prompt
+            return true;
+        }
+
+        "multiplication" | "*" | "x" | "X" | "multiply" => {
+            addition::start(); //start multiplication prompt
+            return true;
+        }
+
+        "division" | "/" | "÷" | "divide" => {
+            subtraction::start(); //start division prompt
             return true;
         }
         _ => {
@@ -45,7 +57,9 @@ pub fn init() {
             println!("{}", "Select Mode: ".green());
             println!("addition {}", "+".green());
             println!("subtraction {}", "-".green());
-            println!("\n");
+            println!("multiplication {}", "*".green());
+            println!("division {}", "/".green());
+            println!("------------------");
 
             loop {
                 //store input in chosen_mode variable
