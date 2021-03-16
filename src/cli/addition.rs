@@ -2,6 +2,7 @@ use colored::Colorize;
 use rand::Rng;
 use std::io;
 use std::io::Write;
+use std::time::{Instant};
 
 //start function
 pub fn start() {
@@ -34,6 +35,7 @@ pub fn start() {
 
     //Loop the questions
     loop {
+        let timestamp = Instant::now();
         let mut numbers: Vec<i32> = Vec::new(); // make vector to store current equation numbers
 
         for i in 0..number_of_digits {
@@ -50,7 +52,7 @@ pub fn start() {
 
         let sum: i32 = numbers.iter().sum(); //adds every element in the vector
 
-        let mut answer_buffer = String::new(); //raw input for answer ?? sure idc
+        let mut answer_buffer = String::new(); //raw input for answer
         std::io::stdin().read_line(&mut answer_buffer).unwrap(); //store in answer_buffer var
 
         let answer_string: &str = (&*answer_buffer).trim(); //answer input as a string to check for string commands
@@ -60,18 +62,22 @@ pub fn start() {
         }
 
         let answer_int = answer_string.parse::<i32>().unwrap(); //answer input as a i32 to check for int commands
-        
+        let duration = timestamp.elapsed(); //duration from when the timestamp was started
+
         //if the answer is correct
         if answer_int == sum {
-            println!("{}", "Correct".green().bold());
+
+            println!("{} ({:?})", "Correct!".green().bold(), duration);
 
         } else if answer_int != sum { //if the answer is incorrect,
-            println!("{}", "Incorrect!".red().bold());
+            println!("{} ({:?})", "Incorrect!".red().bold(), duration);
             println!(
                 "{}{}",
                 "Correct Answer: ".green().bold(),
                 sum.to_string().green().bold()
             );
+        } else {
+            continue;
         }
     }
 }
