@@ -5,7 +5,7 @@ use std::io::Write;
 use std::time::{Instant};
 
 //start function
-pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn()-> i32) {
+pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn(i32)-> i32) {
     println!("{}", "Number of Digits?".green());
 
     let mut number_of_digits_buffer = String::new(); //string to collect input
@@ -39,7 +39,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn()-> i32) 
         // well how are you going to make this modular?
         //  i have an idea
         for i in 0..number_of_digits {
-            let num = num_ge(); // generate a number
+            let num = num_gen(ranges[i as usize]); // generate a number
             numbers.push(num); // add number to vector
 
             if i == number_of_digits - 1 {  //checks if its at the last inputed digit

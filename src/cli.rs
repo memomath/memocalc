@@ -3,6 +3,7 @@ use colored::Colorize;
 mod addition;
 mod subtraction;
 mod game;
+mod multiplication;
 
 //start, with the selected mode
 fn start_mode(mode: &str) -> bool {
@@ -10,19 +11,19 @@ fn start_mode(mode: &str) -> bool {
     //modes possible
     match mode {
         "addition" | "+" | "add" => {
-            game::start("+", &addition::operation); //start addition prompt
+            game::start("+", &addition::operation,&addition::num_gen); //start addition prompt
             return true;
         }
 
         "subtraction" | "-" | "subtract" => {
-            game::start("-",&subtraction::operation); //start subtraction prompt
+            game::start("+",&subtraction::operation, &subtraction::num_gen); //start subtraction prompt
             return true;
         }
 
-        // "multiplication" | "*" | "x" | "X" | "multiply" => {
-        //     game::start("m"); //start multiplication prompt
-        //     return true;
-        // }
+        "multiplication" | "*" | "x" | "X" | "multiply" => {
+            game::start("*",&multiplication::operation, &multiplication::num_gen); //start subtraction prompt
+            return true;
+        }
 
         // "division" | "/" | "÷" | "divide" => {
         //     game::start("d"); //start division prompt
