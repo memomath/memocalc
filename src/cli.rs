@@ -3,6 +3,7 @@ use colored::Colorize;
 mod addition;
 mod subtraction;
 
+//start, with the selected mode
 fn start_mode(mode: &str) -> bool {
     match mode {
         "addition" => {
@@ -20,9 +21,12 @@ fn start_mode(mode: &str) -> bool {
     }
 }
 
+//initialize cli
 pub fn init() {
+    //vector to store args
     let mut args: Vec<String> = std::env::args().collect();
 
+    //switch args, check for certain cases
     match args.get_mut(1) {
         Some(x) => match &*x.to_lowercase() {
             "--help" | "-h" => {
@@ -36,6 +40,7 @@ pub fn init() {
             }
         },
         None => {
+            //print prompt
             print!("\x1B[2J\x1B[1;1H");
             println!("{}", "Select Mode: ".green());
             println!("addition {}", "+".green());
@@ -43,13 +48,17 @@ pub fn init() {
             println!("\n");
 
             loop {
-                let mut line = String::new();
-                std::io::stdin().read_line(&mut line).unwrap();
-                let mut line = &*line;
+                //store input in chosen_mode variable
+                let mut chosen_mode = String::new();
+                std::io::stdin().read_line(&mut chosen_mode).unwrap();
+                
+                //reference to chosen_mode
+                let mut chosen_mode = &*chosen_mode;
 
-                line = line.trim();
+                chosen_mode = chosen_mode.trim();
 
-                if start_mode(line) {
+                //check if start mode is one of the chosen modes, then break;
+                if start_mode(chosen_mode) {
                     break;
                 }
             }
@@ -57,8 +66,10 @@ pub fn init() {
     }
 }
 
+//function to print the help message
 pub fn print_help_message() {}
 
+//function to print a cli error
 pub fn error(error_message: &str, usage: &str) {
     let colored_error: &str = &"ERROR:";
 
