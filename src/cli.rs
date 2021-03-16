@@ -85,7 +85,7 @@ pub fn init() {
 pub fn print_help_message() {}
 
 //function to print a cli error
-pub fn error(error_message: &str, usage: &str) {
+pub fn _error(error_message: &str, usage: &str) {
     let colored_error: &str = &"ERROR:";
 
     return println!(

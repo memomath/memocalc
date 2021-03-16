@@ -5,7 +5,7 @@ use std::io::Write;
 
 //start function
 pub fn start() {
-    println!("Number of Digits?");
+    println!("{}", "Number of Digits?".green());
 
     let mut number_of_digits_buffer = String::new(); //string to collect input
 
@@ -18,7 +18,8 @@ pub fn start() {
 
     //for 0 to the number of numbers, do
     for i in 0..number_of_digits {
-        println!("Range of number {}", i + 1);
+        let number = i + 1;
+        println!("{}: {}", "Range of number".green(), number.to_string().green());
         let mut range = String::new(); //string to store the range input
 
         std::io::stdin()
