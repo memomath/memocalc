@@ -1,1 +1,1 @@
-mkdir test
+cargo install --path .
