@@ -28,6 +28,7 @@ fn start_mode(mode: &str) -> bool {
             return true;
         }
         _ => {
+            println!("{}: {}", "error".red().bold(), "Unknown command");
             return false;
         }
     }
