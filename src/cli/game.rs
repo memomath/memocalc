@@ -32,8 +32,11 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn(i32)-> i3
     }
 
     //let mut rng = rand::thread_rng(); //generate random numbers based on the range
-
+    print!("\x1B[2J\x1B[1;1H");
     //Loop the questions
+
+    let mut times: Vec<f64> = Vec::new();
+
     loop {
         let mut numbers: Vec<i32> = Vec::new(); // make vector to store current equation numbers
         // well how are you going to make this modular?
@@ -66,14 +69,16 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn(i32)-> i3
         let answer_int = answer_string.parse::<i32>().unwrap(); //answer input as a i32 to check for int commands
         let duration = timestamp.elapsed(); //duration from when the timestamp was started
 
+        times.push(duration.as_secs_f64());
+
+        let average:f64 = (times.iter().sum::<f64>())/times.len() as f64;
 
         //if the answer is correct
         if answer_int == sum {
-
-            println!("{} ({:?})", "Correct!".green().bold(), duration);
+            println!("{} ({:?}) Average Time ({}s)", "Correct".green().bold(), duration,average);
 
         } else if answer_int != sum { //if the answer is incorrect,
-            println!("{} ({:?})", "Incorrect!".red().bold(), duration);
+            println!("{} ({:?}) Average Time ({}s)", "Incorrect!".red().bold(), duration,average);
             println!(
                 "{}{}",
                 "Correct Answer: ".green().bold(),
