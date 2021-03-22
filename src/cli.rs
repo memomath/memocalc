@@ -4,6 +4,7 @@ mod addition;
 mod subtraction;
 mod game;
 mod multiplication;
+mod division;
 
 //start, with the selected mode
 fn start_mode(mode: &str) -> bool {
@@ -25,10 +26,10 @@ fn start_mode(mode: &str) -> bool {
             return true;
         }
 
-        // "division" | "/" | "÷" | "divide" => {
-        //     game::start("d"); //start division prompt
-        //     return true;
-        // }
+        "division" | "/" | "÷" | "divide" => {
+            game::start("/", &division::operation as i32, &division::num_gen as i32);
+            return true;
+        }
 
         _ => {
             println!("{}: {}", "error".red().bold(), "Unknown command");
