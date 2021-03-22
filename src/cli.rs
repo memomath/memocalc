@@ -27,7 +27,7 @@ fn start_mode(mode: &str) -> bool {
         }
 
         "division" | "/" | "÷" | "divide" => {
-            game::start("/", &division::operation as i32, &division::num_gen as i32);
+            game::start("/", &division::operation, &division::num_gen);
             return true;
         }
 
