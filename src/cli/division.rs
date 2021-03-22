@@ -9,8 +9,8 @@ pub fn num_gen(range: i32) -> i32 {
 pub fn operation(t: Vec<i32>) -> i32 {
     let mut n = 1;
     for i in t {
-        n *= i;
+        n /= i;
     }
-    n
+    Ok(n)
 }
 
