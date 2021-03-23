@@ -38,6 +38,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>)->i32, num_gen: &dyn Fn(i32)-> i3
     let mut times: Vec<f64> = Vec::new();
 
     loop {
+        print!("\x1B[2J\x1B[1;1H");
         let mut numbers: Vec<i32> = Vec::new(); // make vector to store current equation numbers
         // well how are you going to make this modular?
         //  i have an idea
