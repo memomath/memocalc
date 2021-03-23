@@ -1,37 +1,37 @@
 use colored::Colorize;
 
 mod addition;
-mod subtraction;
+mod division;
 mod game;
 mod multiplication;
+mod subtraction;
 
 //start, with the selected mode
 fn start_mode(mode: &str) -> bool {
-
     //modes possible
     match mode {
         "addition" | "+" | "add" => {
-            game::start("+", &addition::operation,&addition::num_gen); //start addition prompt
+            game::start("+", &addition::operation, &addition::num_gen); //start addition prompt
             return true;
         }
 
         "subtraction" | "-" | "subtract" => {
-            game::start("+",&subtraction::operation, &subtraction::num_gen); //start subtraction prompt
+            game::start("+", &subtraction::operation, &subtraction::num_gen); //start subtraction prompt
             return true;
         }
 
         "multiplication" | "*" | "x" | "X" | "multiply" => {
-            game::start("*",&multiplication::operation, &multiplication::num_gen); //start subtraction prompt
+            game::start("*", &multiplication::operation, &multiplication::num_gen); //start subtraction prompt
             return true;
         }
 
-        // "division" | "/" | "÷" | "divide" => {
-        //     game::start("d"); //start division prompt
-        //     return true;
-        // }
+        "division" | "/" | "÷" | "divide" => {
+            game::start("/", &division::operation, &division::num_gen);
+            return true;
+        }
 
         _ => {
-            println!("{}: {}", "error".red().bold(), "Unknown command");
+            println!("{}: {}", "Error".red().bold(), "Unknown command");
             return false;
         }
     }
@@ -69,7 +69,7 @@ pub fn init() {
                 //store input in chosen_mode variable
                 let mut chosen_mode = String::new();
                 std::io::stdin().read_line(&mut chosen_mode).unwrap();
-                
+
                 //reference to chosen_mode
                 let mut chosen_mode = &*chosen_mode;
 
@@ -91,7 +91,7 @@ pub fn print_help_message() {}
 pub fn _error(error_message: &str, usage: &str) {
     let colored_error: &str = &"ERROR:";
 
-    return println!(
+    println!(
         "
 {} {}
 USAGE:
