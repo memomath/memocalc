@@ -85,7 +85,29 @@ pub fn init() {
 }
 
 //function to print the help message
-pub fn print_help_message() {}
+pub fn print_help_message() {
+    return println!(
+        "
+Memocalc Version 1.0.0
+
+USAGE:
+memocalc <action>
+
+FLAGS:
+    -h, --help       Prints help information
+    -v, --version    Prints version information
+
+ACTIONS:
+    addition, +, add        Practive addition problems
+    subtraction, -, subtract      Practice subtraction problems
+    multiplication, *, multiply   Practice multiplication problems
+    division, /, divide        Practice division problems
+
+ARGS:
+    <action>         The type of action performed
+        "
+    );
+}
 
 //function to print a cli error
 pub fn _error(error_message: &str, usage: &str) {
