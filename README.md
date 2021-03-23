@@ -1,4 +1,4 @@
-# Mentical
+# Memocalc
 
 **Version:** v1.0.0
 
@@ -14,7 +14,7 @@ A useful tool for practicing mental mathematics.
 
 ## About
 
-**Mentical** is a useful tool for practicing mental math. The software is highly **customizable**, with customizability for the **amount of digits**, and **range** that each digit should have. Mentical has many different **modes** and **challenges**, making practicing mental math all the more **fun**. We also track the **time** you took for each problem, to help you **improve** your speed.
+**Memocalc** is a useful tool for practicing mental math. The software is highly **customizable**, with customizability for the **amount of digits**, and **range** that each digit should have. Mentical has many different **modes** and **challenges**, making practicing mental math all the more **fun**. We also track the **time** you took for each problem, to help you **improve** your speed.
 
 - **[Examples](#Examples)**
 - **[Release notes](#Planned-v2-changes)**
@@ -32,20 +32,20 @@ Check **assets** under [releases](https://github.com/mathical-rs/mentical/releas
 **[Homebrew](https://brew.sh/)** (MacOS)
 
 ```bash
-brew tap mathical-rs/homebrew-brew
-brew install mentical
+brew tap memomath/homebrew-brew
+brew install memocalc
 ```
 
 **[Scoop](https://scoop.sh)** (Windows)
 
 ```bash
-scoop install mentical
+scoop install memocalc
 ```
 
-Source build using **[Cargo](https://crates.io/crate/mentical)**
+Source build using **[Cargo](https://crates.io/crate/memocalc)**
 
 ```bash
-cargo install mentical
+cargo install memocalc
 ```
 
 ## Examples
