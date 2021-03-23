@@ -38,7 +38,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>) -> i32, num_gen: &dyn Fn(i32) ->
         println!("division");
     }
     //let mut rng = rand::thread_rng(); //generate random numbers based on the range
-    print!("\x1B[2J\x1B[1;1H");
+    print!("\x1B[2J\x1B[1;1H"); //clear the terminal
     //Loop the questions
 
     let mut times: Vec<f64> = Vec::new();
