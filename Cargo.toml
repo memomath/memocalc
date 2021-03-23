@@ -6,6 +6,7 @@ authors = ["importly", "eternalmoon1234"]
 edition = "2018"
 homepage = "https://github.com/memomath/memocalc#readme"
 repository = "https://github.com/memomath/memocalc"
+license = "MIT"
 exclude = [
     "assets/*"
 ]
