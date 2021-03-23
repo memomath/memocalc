@@ -1,7 +1,5 @@
 # Memocalc
 
-**Version:** v1.0.0
-
 A useful tool for practicing mental mathematics.
 
 ## Features
@@ -88,4 +86,4 @@ cargo install memocalc
 - Equation parser
 - Simple equation problems
 
-**Bugs**
+**Version:** v1.0.0
