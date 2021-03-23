@@ -98,10 +98,10 @@ FLAGS:
     -v, --version    Prints version information
 
 ACTIONS:
-    addition, +, add        Practive addition problems
+    addition, +, add              Practive addition problems
     subtraction, -, subtract      Practice subtraction problems
     multiplication, *, multiply   Practice multiplication problems
-    division, /, divide        Practice division problems
+    division, /, divide           Practice division problems
 
 ARGS:
     <action>         The type of action performed
