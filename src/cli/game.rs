@@ -21,7 +21,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>) -> i32, num_gen: &dyn Fn(i32) ->
         let number = i + 1;
         println!(
             "{}: {}",
-            "Range of number".green(),
+            "Range of term".green(),
             number.to_string().green()
         );
         let mut range = String::new(); //string to store the range input
