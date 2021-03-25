@@ -44,7 +44,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>) -> i32, num_gen: &dyn Fn(i32) ->
     let mut times: Vec<f64> = Vec::new();
 
     loop {
-        print!("\x1B[2J\x1B[1;1H");
+        
         let mut numbers: Vec<i32> = Vec::new(); // make vector to store current equation numbers
 
         for i in 0..number_of_digits {
@@ -79,7 +79,7 @@ pub fn start(sign: &str, ans: &dyn Fn(Vec<i32>) -> i32, num_gen: &dyn Fn(i32) ->
         times.push(duration.as_secs_f64());
 
         let average: f64 = (times.iter().sum::<f64>()) / times.len() as f64;
-
+        
         //if the answer is correct
         if answer_int == sum {
             println!(
