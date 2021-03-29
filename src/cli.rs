@@ -57,13 +57,14 @@ pub fn init() {
         },
         None => {
             //print prompt
-            print!("\x1B[2J\x1B[1;1H");
             println!("{}", "Select Mode: ".green());
             println!("addition {}", "+".green());
             println!("subtraction {}", "-".green());
             println!("multiplication {}", "*".green());
             println!("division {}", "/".green());
             println!("------------------");
+            print!("\x1B[2J\x1B[1;1H");
+
 
             loop {
                 //store input in chosen_mode variable
